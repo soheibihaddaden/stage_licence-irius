@@ -1,44 +1,28 @@
-@extends('layouts.website')
+@extends('layouts.contact')
 
-@section('title', 'contact')
 
 @section('content')
 
-
-<section class="contact-form">
+<section class="contact-form-container">
     <div class="container">
-        <div class="row">
-            <form id="contact-form" >
-                <div class="col-md-6 col-sm-12">
-                    <div class="block">
-                        
-                        <div class="form-group">
-                            <input name="user_name" type="text" class="form-control" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <input name="user_email" type="text" class="form-control" placeholder="Email Address">
-                        </div>
-                        <div class="form-group">
-                            <input name="user_subject" type="text" class="form-control" placeholder="Subject">
-                        </div>
-                    </div>
+        <div class="row justify-content-center">
+            <form id="contact-form" class="contact-form-box">
+                <div class="contact-form-section">
+                    <input name="user_name" type="text" class="contact-input" placeholder="Your Name">
+                    <input name="user_email" type="text" class="contact-input" placeholder="Email Address">
+                    <input name="user_subject" type="text" class="contact-input" placeholder="Subject">
                 </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="block">
-                        <div class="form-group-2">
-                            <textarea name="user_message" class="form-control" rows="3" placeholder="Your Message"></textarea>
-                        </div>
-                            <button class="btn btn-default" type="submit">Send Message</button>
-                    </div>
+                <div class="contact-form-section">
+                    <textarea name="user_message" class="contact-input" rows="3" placeholder="Your Message"></textarea>
+                    <button class="contact-form-btn" type="submit">Send Message</button>
                 </div>
-                <div class="error" id="error">Sorry Msg dose not sent</div>
-                <div class="success" id="success">Message Sent</div>
+                <div class="contact-form-error" id="error">Sorry, message did not send.</div>
+                <div class="contact-form-success" id="success">Message Sent</div>
             </form>
         </div>
-
-
     </div>
 </section>
+
 
 
 

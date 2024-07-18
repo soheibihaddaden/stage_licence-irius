@@ -64,6 +64,4 @@ Route::get('auth/dashboard', [DashboardController::class, 'dashboard'])->name('a
 
 Route::resource('auth/posts',PostController::class);
 
-Route::view('contact','website.blog.contact');
-
-
+Route::view('contact','website.blog.contact')->name('contact');

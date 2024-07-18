@@ -1,0 +1,59 @@
+.contact-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Adjust height as per your layout */
+}
+
+.contact-form-box {
+    width: 100%;
+    max-width: 600px; /* Adjust width as per your requirement */
+    padding: 20px;
+    background: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.contact-input:focus {
+    border-color: #0073ff;  /* Sets the border color to blue when the input is focused */
+    outline: none;  /* Optionally removes the default focus outline */
+    border-width: 1.5px; 
+}
+
+.contact-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+}
+
+.contact-form-section {
+    margin-bottom: 20px;
+}
+
+.contact-form-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #141d28;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form-btn:hover {
+    background-color:#0073ff;
+    color: #141d28;
+}
+
+.contact-form-error, .contact-form-success {
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+}
+
+.contact-form-error {
+    background-color: #ff6666;
+}
+
+.contact-form-success {
+    background-color: #4CAF50;
+}
