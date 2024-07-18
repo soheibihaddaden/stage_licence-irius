@@ -8,6 +8,9 @@
 		<div class="row">
     
 			<div class="col-md-8">
+
+			@if(count($posts))
+		
         		@foreach($posts as $post)
                 <div class="post">
                         <div class="post-media post-thumb">
@@ -35,8 +38,12 @@
 
                 
                 @endforeach
+			
+			@else
+			<h1 class="text-center text-danger mt-5">Aucune publication</h1>
+			@endif	
 
-				<div class="d-flex custom-pagination">
+				<div class="d-flex custom-pagination mb-3">
                       {{ $posts->links('vendor.pagination.bootstrap-5') }}
                 </div>
 
@@ -48,6 +55,7 @@
       		<div class="col-md-4">
 				<aside class="sidebar">
 	<!-- Widget Latest Posts -->
+
 	<div class="widget widget-latest-post">
 		<h4 class="widget-title">dernières publications</h4>
      
@@ -69,7 +77,7 @@
 			</div>
 			@endforeach
 		@else
-		<h4 class="text-center text-danger">"Aucune Publication</h4>
+		<h4 class="text-center text-danger">Aucune Publication</h4>
 		@endif
 		
 

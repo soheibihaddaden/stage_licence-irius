@@ -63,3 +63,7 @@ Auth::routes();
 Route::get('auth/dashboard', [DashboardController::class, 'dashboard'])->name('auth.dashboard')->middleware('auth');
 
 Route::resource('auth/posts',PostController::class);
+
+Route::view('contact','website.blog.contact');
+
+

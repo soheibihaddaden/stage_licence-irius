@@ -6,11 +6,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
+        	
+
+			@if(count($posts))
+			
         		@foreach($posts as $post)
                 <div class="post">
                             <div class="post-media post-thumb">
                             @if($post->gallery && $post->gallery->image)
-                                <a href="blog-single.html">
+                                <a href="#">
                                     <img src="/images/posts/{{$post->gallery->image}}" alt="" style="width:70%">
                                 </a>
                                 @endif
@@ -33,8 +37,12 @@
                 </div>
 
                 @endforeach
+            @else
+			<h1 class="text-center text-danger mt-5">Aucune publication</h1>
+			@endif    
+
 				
-				<div class="d-flex custom-pagination">
+				<div class="d-flex custom-pagination mb-3">
                       {{ $posts->links('vendor.pagination.bootstrap-5') }}
                 </div>
 
@@ -44,44 +52,32 @@
       		<div class="col-md-4">
 				<aside class="sidebar">
 	<!-- Widget Latest Posts -->
+
 	<div class="widget widget-latest-post">
-		<h4 class="widget-title">Latest Posts</h4>
-		<div class="media">
-			<a class="pull-left" href="blog-single.html">
-				<img class="media-object" src="images/blog/post-thumb.jpg" alt="Image">
-			</a>
+		<h4 class="widget-title">dernières publications</h4>
+     
+		@if(count($latestposts))
+		
+			@foreach($latestposts as $post)
+			<div class="media">
+			@if($post->gallery && $post->gallery->image)
+			<a class="pull-left" href="{{route('website.posts.show',$post->id)}}">
+				<img class="media-object" src="/images/posts/{{$post->gallery->image}}" alt="">
+			</a>            
+			@endif
+		
 			<div class="media-body">
-				<h4 class="media-heading"><a href="blog-single.html">Introducing Swift for Mac</a></h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, officia.</p>
+				<h4 class="media-heading"><a href="{{route('website.posts.show',$post->id)}}">{{$post->title}}</a></h4>
+				<p>{!!Str::limit(html_entity_decode($post->description),15)!!}</p>
 			</div>
-		</div>
-		<div class="media">
-			<a class="pull-left" href="blog-single.html">
-				<img class="media-object" src="images/blog/post-thumb-2.jpg" alt="Image">
-			</a>
-			<div class="media-body">
-				<h4 class="media-heading"><a href="blog-single.html">Welcome to Themefisher Family</a></h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, officia.</p>
+		    <hr>
 			</div>
-		</div>
-		<div class="media">
-			<a class="pull-left" href="blog-single.html">
-				<img class="media-object" src="images/blog/post-thumb-3.jpg" alt="Image">
-			</a>
-			<div class="media-body">
-				<h4 class="media-heading"><a href="blog-single.html">Warm welcome from swift</a></h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, officia.</p>
-			</div>
-		</div>
-		<div class="media">
-			<a class="pull-left" href="blog-single.html">
-				<img class="media-object" src="images/blog/post-thumb-4.jpg" alt="Image">
-			</a>
-			<div class="media-body">
-				<h4 class="media-heading"><a href="blog-single.html">Introducing Swift for Mac</a></h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, officia.</p>
-			</div>
-		</div>
+			@endforeach
+		@else
+		<h4 class="text-center text-danger">Aucune Publication</h4>
+		@endif
+		
+
 	</div>
 	<!-- End Latest Posts -->
 

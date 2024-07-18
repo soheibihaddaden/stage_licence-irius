@@ -10,10 +10,15 @@ class websitecontroller extends Controller
     public function home()
     {
 
-        $latestposts=Posts::orderBy('id','desc')->take(5)->get();
-
+        
         $posts = Posts::where('is_publish', Posts::Published)->paginate(5);
-        return view('website.blog.index', ['posts' => $posts ,'latestposts' => $latestposts, ]);        
+        
+        $latestposts = Posts::where('is_publish', Posts::Published)
+                    ->orderBy('id', 'desc')
+                    ->take(5)
+                    ->get();
+
+        return view('website.blog.index', ['posts' => $posts ,'latestposts' => $latestposts]);        
          
 
     } 
@@ -40,8 +45,17 @@ class websitecontroller extends Controller
                                $query->where('name', 'Agenda');
                            })
                            ->paginate(5);
+           
+        $latestposts = Posts::where('is_publish', Posts::Published)
+               ->whereHas('category', function ($query) {
+                   $query->where('name', 'Agenda');
+               })
+               ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+               ->take(5)                // Limitation à 5 posts
+               ->get();                 // Récupération des résultats
+
         
-            return view('website.blog.Evenements.agenda', ['posts' => $posts]);
+            return view('website.blog.Evenements.agenda', ['posts' => $posts ,'latestposts' => $latestposts]);
     }
         
 
@@ -57,9 +71,17 @@ class websitecontroller extends Controller
         })
         ->paginate(5);
 
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Diplomes');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
+
 
         
-         return view('website.blog.Evenements.diplomes', ['posts' => $posts]);
+         return view('website.blog.Evenements.diplomes', ['posts' => $posts ,'latestposts' => $latestposts]);
 
 
     }
@@ -74,8 +96,14 @@ class websitecontroller extends Controller
         ->paginate(5);
 
         
-
-        return view('website.blog.Evenements.conferences', ['posts' => $posts]);        
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Conferences');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
+        return view('website.blog.Evenements.conferences', ['posts' => $posts ,'latestposts' => $latestposts]);        
         
       
 
@@ -92,8 +120,16 @@ class websitecontroller extends Controller
         ->paginate(5);
 
         
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'soirees');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
 
-        return view('website.blog.Evenements.soirees', ['posts' => $posts]);        
+
+        return view('website.blog.Evenements.soirees', ['posts' => $posts ,'latestposts' => $latestposts]);        
          
     
 
@@ -111,8 +147,15 @@ class websitecontroller extends Controller
         })
         ->paginate(5);
 
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Nos EAD');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
 
-        return view('website.blog.NousLesCaweb.NosEad', ['posts' => $posts]);        
+        return view('website.blog.NousLesCaweb.NosEad', ['posts' => $posts ,'latestposts' => $latestposts]);        
          
     
 
@@ -128,7 +171,15 @@ class websitecontroller extends Controller
         })
         ->paginate(5);
 
-        return view('website.blog.NousLesCaweb.Mhistoire', ['posts' => $posts]);        
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Meilleures histoires CAWEB');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
+
+        return view('website.blog.NousLesCaweb.Mhistoire', ['posts' => $posts ,'latestposts' => $latestposts]);        
          
     
 
@@ -145,9 +196,15 @@ class websitecontroller extends Controller
         })
         ->paginate(5);
 
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Histoires d\'anciens CAWEB');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
 
-
-        return view('website.blog.NousLesCaweb.anciensCaweb', ['posts' => $posts]);        
+        return view('website.blog.NousLesCaweb.anciensCaweb', ['posts' => $posts ,'latestposts' => $latestposts]);        
          
     
 
@@ -164,8 +221,15 @@ class websitecontroller extends Controller
         })
         ->paginate(5);
 
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Qui sommes nous?');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
 
-        return view('website.blog.DecouvrirLassociation.quisommesnous', ['posts' => $posts]);        
+        return view('website.blog.DecouvrirLassociation.quisommesnous', ['posts' => $posts ,'latestposts' => $latestposts]);        
          
     
 
@@ -180,7 +244,15 @@ class websitecontroller extends Controller
         })
         ->paginate(5);
 
-        return view('website.blog.DecouvrirLassociation.membres', ['posts' => $posts]);        
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Membres du Bureau');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
+
+        return view('website.blog.DecouvrirLassociation.membres', ['posts' => $posts ,'latestposts' => $latestposts]);        
          
     
 
@@ -196,7 +268,15 @@ class websitecontroller extends Controller
         })
         ->paginate(5);
 
-        return view('website.blog.DecouvrirLassociation.projets', ['posts' => $posts]);        
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Nos projets');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
+
+        return view('website.blog.DecouvrirLassociation.projets', ['posts' => $posts ,'latestposts' => $latestposts]);        
          
     }
 
@@ -213,7 +293,15 @@ class websitecontroller extends Controller
         })
         ->paginate(5);
 
-        return view('website.blog.Galerie.photos', ['posts' => $posts]);        
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Photos');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
+
+        return view('website.blog.Galerie.photos', ['posts' => $posts ,'latestposts' => $latestposts]);        
          
     }
 
@@ -229,7 +317,15 @@ class websitecontroller extends Controller
         })
         ->paginate(5);
 
-        return view('website.blog.NosPartenaires.partenairesprivees', ['posts' => $posts]);        
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Partenaires privés');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
+
+        return view('website.blog.NosPartenaires.partenairesprivees', ['posts' => $posts ,'latestposts' => $latestposts]);        
          
     }
 
@@ -242,9 +338,18 @@ class websitecontroller extends Controller
             $query->where('name', 'Partenaires associatifs');
         })
         ->paginate(5);
+  
+
+        $latestposts = Posts::where('is_publish', Posts::Published)
+        ->whereHas('category', function ($query) {
+            $query->where('name', 'Partenaires associatifs');
+        })
+        ->orderBy('id', 'desc')  // Tri par id décroissant pour obtenir les derniers posts
+        ->take(5)                // Limitation à 5 posts
+        ->get();                 // Récupération des résultats
 
 
-        return view('website.blog.NosPartenaires.paternairesassociatifs', ['posts' => $posts]);        
+        return view('website.blog.NosPartenaires.paternairesassociatifs', ['posts' => $posts ,'latestposts' => $latestposts]);        
          
     }
 
