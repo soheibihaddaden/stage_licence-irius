@@ -10,9 +10,10 @@ class websitecontroller extends Controller
     public function home()
     {
 
-        
+        $latestposts=Posts::orderBy('id','desc')->take(5)->get();
+
         $posts = Posts::where('is_publish', Posts::Published)->paginate(5);
-        return view('website.blog.index', ['posts' => $posts]);        
+        return view('website.blog.index', ['posts' => $posts ,'latestposts' => $latestposts, ]);        
          
 
     } 

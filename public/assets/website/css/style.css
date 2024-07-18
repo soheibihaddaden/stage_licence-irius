@@ -4,6 +4,9 @@
 @import url(http://fonts.googleapis.com/css?family=Volkhov:400italic);
 
 
+
+
+
 body {
   line-height: 1.5;
   font-family: "Roboto", sans-serif;
@@ -2094,10 +2097,11 @@ font header .navbar-default .navbar-nav li a:hover {
   margin-bottom: 15px;
   padding-bottom: 10px;
   font-size: 16px;
-  color: #333;
+  color:  #141d28;
   font-weight: 500;
   border-bottom: 1px solid #dedede;
 }
+
 
 .widget.widget-latest-post .media .media-object {
   width: 100px;
@@ -2105,8 +2109,14 @@ font header .navbar-default .navbar-nav li a:hover {
 }
 
 .widget.widget-latest-post .media .media-heading a {
-  color: #000;
+  color:white;
   font-size: 16px;
+  color:  #141d28;
+}
+
+
+.widget.widget-latest-post .media .media-heading a:hover {
+  color: #0073ff; 
 }
 
 .widget.widget-latest-post .media p {
@@ -2765,4 +2775,7 @@ font header .navbar-default .navbar-nav li a:hover {
   background-color: #0073ff; /* Couleur de fond au survol */
   color: black; /* Couleur du texte au survol */
 }
+
+
+
 
