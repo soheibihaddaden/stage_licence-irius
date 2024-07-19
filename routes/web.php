@@ -17,45 +17,48 @@ use App\Http\Controllers\websitecontroller;
 |
 */
 
-Route::get('/', [WebsiteController::class ,'home'])->name('home');
+
+Route::controller(WebsiteController::class)->group(function()
+{
+
+    Route::get('/', 'home')->name('home');
 
 
-Route::get('/agenda', [WebsiteController::class ,'agenda'])->name('agenda');
-Route::get('/conferences', [WebsiteController::class ,'conferences'])->name('conferences');
-Route::get('/diplomes', [WebsiteController::class ,'diplomes'])->name('diplomes');
-Route::get('/soirees', [WebsiteController::class ,'soirees'])->name('soirees');
+Route::get('/agenda', 'agenda')->name('agenda');
+Route::get('/conferences', 'conferences')->name('conferences');
+Route::get('/diplomes', 'diplomes')->name('diplomes');
+Route::get('/soirees', 'soirees')->name('soirees');
 
 
-Route::get('/NosEAD', [WebsiteController::class ,'NosEAD'])->name('NosEAD');
-Route::get('/MhistoiresCAWEB', [WebsiteController::class ,'MhistoiresCAWEB'])->name('MhistoiresCAWEB');
-Route::get('/anciensCAWEB', [WebsiteController::class ,'anciensCAWEB'])->name('anciensCAWEB');
-
-
-
-Route::get('/quisommesnous', [WebsiteController::class ,'Quisommesnous'])->name('quisommesnous');
-Route::get('/membres', [WebsiteController::class ,'Membres'])->name('membres');
-Route::get('/projets', [WebsiteController::class ,'projets'])->name('projets');
-
-
-Route::get('/partenairesprivees', [WebsiteController::class ,'partenairesprivees'])->name('partenairesprivees');
-Route::get('/photos', [WebsiteController::class ,'photos'])->name('photos');
-Route::get('/parternaireassociatifs', [WebsiteController::class ,'parternaireassociatifs'])->name('parternaireassociatifs');
+Route::get('/NosEAD', 'NosEAD')->name('NosEAD');
+Route::get('/MhistoiresCAWEB', 'MhistoiresCAWEB')->name('MhistoiresCAWEB');
+Route::get('/anciensCAWEB', 'anciensCAWEB')->name('anciensCAWEB');
 
 
 
+Route::get('/quisommesnous', 'Quisommesnous')->name('quisommesnous');
+Route::get('/membres', 'Membres')->name('membres');
+Route::get('/projets', 'projets')->name('projets');
 
 
-
-Route::get('/posts/{post}', [WebsiteController::class ,'show'])->name('website.posts.show');
+Route::get('/partenairesprivees', 'partenairesprivees')->name('partenairesprivees');
+Route::get('/photos',  'photos')->name('photos');
+Route::get('/parternaireassociatifs', 'parternaireassociatifs')->name('parternaireassociatifs');
 
 
 
 
 
-Route::get('/gallerie', [WebsiteController::class ,'gallerie'])->name('gallerie');
+Route::get('/posts/{post}', 'show')->name('website.posts.show');
 
-Route::get('/single', [WebsiteController::class ,'single'])->name('single');
 
+Route::get('/gallerie', 'gallerie')->name('gallerie');
+Route::get('/single', 'single')->name('single');
+
+
+
+
+});
 
 
 Auth::routes();
