@@ -13,9 +13,9 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 .contact-input:focus {
-    border-color: #0073ff;  /* Sets the border color to blue when the input is focused */
-    outline: none;  /* Optionally removes the default focus outline */
-    border-width: 1.5px; 
+    border-color: #0073ff !important; /* Sets the border color to blue when the input is focused */
+    outline: none  !important ;/* Optionally removes the default focus outline */
+    border-width: 1.5px !important;
 }
 
 .contact-input {

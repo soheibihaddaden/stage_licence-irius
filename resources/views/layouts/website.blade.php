@@ -18,7 +18,7 @@
    <link rel="stylesheet" href="{{asset('assets/website/plugins/slick-carousel/slick/slick.css')}}">
   <link rel="stylesheet" href="{{asset('assets/website/plugins/slick-carousel/slick/slick-theme.css')}}">
   <link rel="stylesheet" href="{{asset('assets/website/css/style.css')}}">
-
+  <link rel="stylesheet" href="{{asset('assets/website/css/contact.css')}}">
  
   </head>
   <body>
