@@ -19,6 +19,7 @@ class PostController extends Controller
 
           $posts= Posts::with(['gallery','category'])->get();
           return view('auth.posts.index',['posts'=>$posts]);
+          
 
     }
 

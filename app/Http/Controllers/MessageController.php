@@ -13,7 +13,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        return Message::all();
+    
     }
 
     /**
@@ -44,7 +44,7 @@ class MessageController extends Controller
             // En cas d'erreur, rediriger avec un message d'erreur
             return back()->with('error', 'Une erreur est survenue lors de l\'envoi du message.');
         }
-        
+
     }
 
     /**

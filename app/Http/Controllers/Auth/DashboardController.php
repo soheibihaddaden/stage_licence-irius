@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Posts;
 
+use App\Models\Message;
+
 class DashboardController extends Controller
 {
     
@@ -18,6 +20,14 @@ class DashboardController extends Controller
     
        return view('auth.dashboard' , compact('publishedPostCount','DraftPostCount','usercount')); 
     
+    }
+
+    public function messages()
+    {
+
+           $messages=Message::all();
+           return view('auth.messages.index', ['messages'=>$messages]);
+
     }
 
     

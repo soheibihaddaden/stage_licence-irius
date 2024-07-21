@@ -22,8 +22,19 @@ class ViewServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('layouts.auth', function ($view) {
-            $messages = Message::all();  // Récupérer les messages
-            $view->with('messages', $messages);
+            
+            $latestMessages = Message::latest('id')->take(4)->get();
+    
+            $totalMessagesCount = Message::count();
+    
+            $remainingMessagesCount = $totalMessagesCount - 4;
+    
+            // Passer les messages et les comptes à la vue
+            $view->with([
+                'messages' => $latestMessages,
+                'remainingMessagesCount' => $remainingMessagesCount
+            ]);
         });
     }
+    
 }

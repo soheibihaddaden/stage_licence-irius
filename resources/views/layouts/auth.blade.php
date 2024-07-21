@@ -73,8 +73,8 @@
     
 
                 <div class="dropdown-divider"></div>
-                <h6 class="p-3 mb-0 text-center">4 new messages</h6>
-              </div>
+                <a href="{{ route('auth.messages') }}" class="text-decoration-none">{{$remainingMessagesCount}} nouveaux messages</a>
+                </div>
             </li>
             
 
