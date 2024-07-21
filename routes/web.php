@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Auth\PostController;
 use App\Http\Controllers\websitecontroller;
+use App\Http\Controllers\Messagecontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,3 +69,5 @@ Route::get('auth/dashboard', [DashboardController::class, 'dashboard'])->name('a
 Route::resource('auth/posts',PostController::class);
 
 Route::view('contact','website.blog.contact')->name('contact');
+
+Route::resource('/contacter-nous',MessageController::class);

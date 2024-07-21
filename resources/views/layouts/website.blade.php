@@ -100,7 +100,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route('contact')}}">Nous contacter</a>
+                <a class="nav-link" href="{{route('contacter-nous.create')}}">Nous contacter</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -142,7 +142,7 @@
                     <li><a href="{{route('membres')}}">Membres</a></li>
                     <li><a href="{{route('projets')}}">Projets</a></li>
                     <li><a href="{{route('quisommesnous')}}">Qui sommes nous?</a></li>
-                    <li><a href="#">Nous contacter</a></li>
+                    <li><a href="{{route('contacter-nous.create')}}">Nous contacter</a></li>
               
                 </ul>
             </div>
