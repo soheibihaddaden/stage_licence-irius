@@ -52,7 +52,9 @@ class MessageController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $message = Message::findOrFail($id); 
+        return view('auth.messages.show', ['message' => $message]);  
+
     }
 
     /**

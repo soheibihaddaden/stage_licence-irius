@@ -73,3 +73,6 @@ Route::view('contact','website.blog.contact')->name('contact');
 Route::resource('/contacter-nous',MessageController::class);
 
 Route::get('auth/messages', [DashboardController::class, 'messages'])->name('auth.messages');
+
+Route::get('auth/messages/{id}', [MessageController::class, 'show'])->name('messages.show');
+

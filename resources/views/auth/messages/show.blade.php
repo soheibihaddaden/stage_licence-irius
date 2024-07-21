@@ -23,37 +23,16 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                  @if(count($messages)>0) 
-                  <h4 class="card-title">Messages</h4>
-
                 
-                    <table id="posts-table" class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>nom </th>
-                          <th>email</th>
-                          <th>sujet</th>
-                          <th>message</th>
-                          <th>envoyer a</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                    
-                    @foreach($messages as $msg)
-                      <tr onclick="window.location='{{ route('messages.show', $msg->id) }}';" style="cursor: pointer;">
-                      <td>{{$msg->nom}}</td>
-                      <td>{{$msg->email}}</td>
-                      <td>{{Str::limit($msg->sujet, 15)}}</td>
-                      <td>{{Str::limit($msg->user_message, 15)}}</td>
-                      <td>{{$msg->created_at->diffForHumans()}}</td>
-                      </tr>
-                    @endforeach
+                  <h4 class="card-title">Message Details</h4>
 
-                      </tbody>
-                    </table>
-                    @else 
-                    <h3 class="text-center text-danger">Pas de message</h3>
-                    @endif
+         
+                 <p><strong>Nom:</strong> {{ $message->nom }}</p>
+                 <p><strong>Email:</strong> {{ $message->email }}</p>
+                 <p><strong>Sujet:</strong> {{ $message->sujet }}</p>
+                 <p><strong>Message:</strong> {{ $message->user_message }}</p>
+                 <p><strong>Envoyé à:</strong> {{ $message->created_at->translatedFormat('d F Y') }}</p>
+                 <a href="{{ url()->previous() }}">Retour</a>
 
 
                   </div>

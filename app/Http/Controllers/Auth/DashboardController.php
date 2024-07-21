@@ -25,8 +25,9 @@ class DashboardController extends Controller
     public function messages()
     {
 
-           $messages=Message::all();
-           return view('auth.messages.index', ['messages'=>$messages]);
+        $messages = Message::orderBy('id', 'desc')->get();
+
+        return view('auth.messages.index', ['messages'=>$messages]);
 
     }
 

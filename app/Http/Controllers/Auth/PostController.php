@@ -19,10 +19,9 @@ class PostController extends Controller
 
           $posts= Posts::with(['gallery','category'])->get();
           return view('auth.posts.index',['posts'=>$posts]);
-          
+
 
     }
-
 
     public function create()
     {
@@ -69,9 +68,8 @@ class PostController extends Controller
 
         );
 
-        DB::commit();
-
- 
+        DB::commit(); 
+    
     }catch(\Execption $ex)
     {
         DB::rollBack();
@@ -96,19 +94,14 @@ class PostController extends Controller
         
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        
     }
+
 }
