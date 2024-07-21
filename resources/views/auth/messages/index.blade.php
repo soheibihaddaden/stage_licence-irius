@@ -26,7 +26,6 @@
                   @if(count($messages)>0) 
                   <h4 class="card-title">Messages</h4>
 
-                
                     <table id="posts-table" class="table table-striped">
                       <thead>
                         <tr>

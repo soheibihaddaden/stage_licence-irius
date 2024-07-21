@@ -76,3 +76,7 @@ Route::get('auth/messages', [DashboardController::class, 'messages'])->name('aut
 
 Route::get('auth/messages/{id}', [MessageController::class, 'show'])->name('messages.show');
 
+
+Route::get('/messages/new-count', [MessageController::class, 'newMessageCount'])->name('messages.new.count');
+
+

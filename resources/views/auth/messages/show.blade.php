@@ -18,23 +18,17 @@
               </nav>
             </div>
             <div class="row">
-
-
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                 
                   <h4 class="card-title">Message Details</h4>
-
-         
                  <p><strong>Nom:</strong> {{ $message->nom }}</p>
                  <p><strong>Email:</strong> {{ $message->email }}</p>
                  <p><strong>Sujet:</strong> {{ $message->sujet }}</p>
                  <p><strong>Message:</strong> {{ $message->user_message }}</p>
                  <p><strong>Envoyé à:</strong> {{ $message->created_at->translatedFormat('d F Y') }}</p>
                  <a href="{{ url()->previous() }}">Retour</a>
-
-
                   </div>
                 </div>
               </div>

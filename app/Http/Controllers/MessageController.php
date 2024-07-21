@@ -80,4 +80,15 @@ class MessageController extends Controller
     {
         //
     }
+
+    public function newMessageCount()
+    {
+    $remainingMessagesCount = Message::where('is_read', false)->count();  // Assurez-vous de définir comment vous déterminez les nouveaux messages
+    return response()->json(['remainingMessagesCount' => $remainingMessagesCount]);
+    }
+
+
+
+
+
 }

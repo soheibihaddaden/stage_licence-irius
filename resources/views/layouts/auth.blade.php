@@ -50,7 +50,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="mdi mdi-email-outline"></i>
-                <span class="count-symbol bg-warning"></span>
+                <span class="count-symbol bg-warning" id="messageCount"></span>
               </a>
 
               <div class="dropdown-menu dropdown-menu-end navbar-dropdown preview-list" aria-labelledby="messageDropdown">
@@ -70,13 +70,14 @@
                 </a>
 
               @endforeach
-    
-
+  
                 <div class="dropdown-divider"></div>
                 <a href="{{ route('auth.messages') }}" class="text-decoration-none">{{$remainingMessagesCount}} nouveaux messages</a>
                 </div>
             </li>
             
+
+
 
 
             <li class="nav-item nav-logout d-none d-lg-block">
@@ -179,6 +180,7 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="{{asset('assets/auth/js/dashboard.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
      <!-- End custom js for this page -->
 
@@ -212,6 +214,36 @@
   swal("Good job!", "{{Session::get('alert-success')}}", "error");  
   @endif
   
+</script>
+
+
+
+<script>
+$(document).ready(function() {
+    let lastCount = {{ $remainingMessagesCount }}; // Stockez le nombre initial de nouveaux messages
+    // Cachez l'indicateur lorsque vous cliquez sur le dropdown
+    $('#messageDropdown').click(function() {
+        $('#messageCount').hide();
+    });
+
+    // Fonction pour vérifier les nouveaux messages
+    function fetchNewMessageCount() {
+        $.ajax({
+            url: '{{ route("messages.new.count") }}',
+            type: 'GET',
+            success: function(data) {
+                if (data.remainingMessagesCount > lastCount) {
+                    $('#messageCount').show(); // Montrez l'indicateur si le nombre de nouveaux messages a augmenté
+                    $('#messageCount').text(data.remainingMessagesCount); // Mettez à jour le texte de l'indicateur
+                    lastCount = data.remainingMessagesCount; // Mettez à jour le dernier comptage connu
+                }
+            }
+        });
+    }
+
+    
+    setInterval(fetchNewMessageCount, 30000); 
+});
 </script>
 
 
