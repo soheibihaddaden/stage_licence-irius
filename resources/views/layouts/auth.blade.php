@@ -47,6 +47,37 @@
               </a>
             </li>
 
+            <li class="nav-item dropdown">
+              <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="mdi mdi-email-outline"></i>
+                <span class="count-symbol bg-warning"></span>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-end navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                <h6 class="p-3 mb-0">Messages</h6>
+
+              
+                @foreach($messages as $message)
+               
+              
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+               
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">{{$message->nom}} vous a envoyer un message</h6>
+                    <p class="text-gray mb-0"> {{ $message->created_at->diffForHumans() }}</p>
+                  </div>
+                </a>
+
+              @endforeach
+    
+
+                <div class="dropdown-divider"></div>
+                <h6 class="p-3 mb-0 text-center">4 new messages</h6>
+              </div>
+            </li>
+            
+
 
             <li class="nav-item nav-logout d-none d-lg-block">
              <form id="logout-form" method="post" action="{{route('logout')}}">

@@ -28,10 +28,19 @@
                     <textarea name="user_message" class="contact-input" rows="3" placeholder="Votre Message"></textarea>
                     <button class="contact-form-btn" type="submit">Envoyer le message</button>
                 </div>
-                <!-- Commentaires sur la gestion des erreurs et succès -->
-                <!-- <div class="contact-form-error" id="error">Désolé, le message n'a pas été envoyé.</div>
-                <div class="contact-form-success" id="success">Message envoyé</div> -->
+
             </form>
+            @if(session('error'))
+            <div class="alert alert-danger">
+             {{ session('error') }}
+            </div>
+            @endif
+            @if(session('success'))
+            <div class="alert alert-success">
+             {{session('success') }}
+            </div>
+            @endif
+
         </div>
     </div>
 </section>

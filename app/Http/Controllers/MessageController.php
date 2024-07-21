@@ -13,7 +13,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        
+        return Message::all();
     }
 
     /**
@@ -21,7 +21,9 @@ class MessageController extends Controller
      */
     public function create()
     {
+        
         return view('website.blog.contact');
+
     }
 
     /**
@@ -29,17 +31,20 @@ class MessageController extends Controller
      */
     public function store(MessageRequest $request)
     {
-        Message::create([
-
-            'nom'=> $request->nom,
-            'email'=>$request->email,
-            'sujet'=>$request->sujet,
-            'user_message'=>$request->user_message,
+        try {
+            Message::create([
+                'nom' => $request->nom,
+                'email' => $request->email,
+                'sujet' => $request->sujet,
+                'user_message' => $request->user_message,
+            ]);
+    
+            return back()->with('success', 'Votre message a été envoyé avec succès.');
+        } catch (\Exception $e) {
+            // En cas d'erreur, rediriger avec un message d'erreur
+            return back()->with('error', 'Une erreur est survenue lors de l\'envoi du message.');
+        }
         
-        ]);
-
-
-        return 'success';
     }
 
     /**
