@@ -103,8 +103,8 @@
                 <a class="nav-link" href="{{route('contacter-nous.create')}}">Nous contacter</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2 search-bar" type="search" placeholder="Rechercher" aria-label="Rechercher">
+            <form class="d-flex" role="search" action="{{ route('search.posts') }}" method="get">
+              <input class="form-control me-2 search-bar" type="search" name="query" placeholder="Rechercher" aria-label="Rechercher">
               <button class="btn btn-outline-success search-button" type="submit" id="search">Recherche</button>
             </form>
           </div>

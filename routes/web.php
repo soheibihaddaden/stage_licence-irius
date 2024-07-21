@@ -80,3 +80,4 @@ Route::get('auth/messages/{id}', [MessageController::class, 'show'])->name('mess
 Route::get('/messages/new-count', [MessageController::class, 'newMessageCount'])->name('messages.new.count');
 
 
+Route::get('/search/posts', [PostController::class, 'search'])->name('search.posts');

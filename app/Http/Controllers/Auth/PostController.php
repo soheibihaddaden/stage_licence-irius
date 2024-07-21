@@ -84,7 +84,7 @@ class PostController extends Controller
    
     public function show(string $id)
     {
-        
+
 
     }
 
@@ -103,5 +103,21 @@ class PostController extends Controller
     {
         
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $posts = Posts::where('title', 'LIKE', "%{$query}%")
+        ->orWhere(function($q) use ($query) {
+           $q->where('description', 'LIKE', "%{$query}%")
+             ->where('is_publish', true);
+        })
+        ->paginate(10); 
+
+        return view('website.blog.search', ['posts' => $posts]);
+    }
+
+    
 
 }
