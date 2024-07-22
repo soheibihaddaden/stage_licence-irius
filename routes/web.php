@@ -6,7 +6,7 @@ use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Auth\PostController;
 use App\Http\Controllers\websitecontroller;
 use App\Http\Controllers\Messagecontroller;
-
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,3 +90,6 @@ Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edi
 Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
 
 
+
+
+Route::post('/logout', [LoginController::class,'logout'])->name('logout');

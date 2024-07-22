@@ -2,9 +2,10 @@
 
 @section('content')
 
-<button onclick="history.back()" class="btn-return">Retour</button>
+>
 
 <section class="page-wrapper">	
+<button onclick="history.back()" class="btn-return">Retour</button>
 <div class="container">
 
 		<div class="row">

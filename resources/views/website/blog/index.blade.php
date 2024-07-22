@@ -54,7 +54,7 @@
       		</div>
       		<div class="col-md-4">
 				<aside class="sidebar">
-	<!-- Widget Latest Posts -->
+
 
 	<div class="widget widget-latest-post">
 		<h4 class="widget-title">dernières publications</h4>
