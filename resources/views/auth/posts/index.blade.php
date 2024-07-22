@@ -26,7 +26,6 @@
                   @if(count($posts)>0) 
                   <h4 class="card-title">Post</h4>
                  
-                
                     <table id="posts-table" class="table table-striped">
                       <thead>
                         <tr>
@@ -66,10 +65,24 @@
                          
                           <td>
                         
-                         <a href="" class="btn btn-sm btn-success"><i class="fa-solid fa-eye"></i></a>
-                         <a href="" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
-                         <a href="" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a>
-                         </td>
+                          <div class="d-flex align-items-center">
+                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-success mr-1">
+                    <i class="fa-solid fa-eye"></i>
+                </a>
+                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-info mr-1">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+                <form action="{{ route('posts.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');" class="m-0">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </form>
+            </div>
+
+
+                        </td>
                         </tr>
                          @endforeach
                       </tbody>

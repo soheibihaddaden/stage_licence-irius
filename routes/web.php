@@ -47,9 +47,6 @@ Route::get('/photos',  'photos')->name('photos');
 Route::get('/parternaireassociatifs', 'parternaireassociatifs')->name('parternaireassociatifs');
 
 
-
-
-
 Route::get('/posts/{post}', 'show')->name('website.posts.show');
 
 
@@ -81,3 +78,15 @@ Route::get('/messages/new-count', [MessageController::class, 'newMessageCount'])
 
 
 Route::get('/search/posts', [PostController::class, 'search'])->name('search.posts');
+
+
+Route::get('/post/details/{id}', [PostController::class, 'show'])->name('post.show');
+
+
+Route::delete('/post/drop/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+
+Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
+
+
