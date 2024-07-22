@@ -1,9 +1,16 @@
+
+.contact-form-container {
+    margin-top: 5rem; /* Ajouté pour créer un espace sous le header */
+}
+
+
 .contact-form-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Adjust height as per your layout */
 }
+
 
 .contact-form-box {
     width: 100%;

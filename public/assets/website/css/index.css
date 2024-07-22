@@ -8,11 +8,17 @@
 
 body {
     font-family: "Montserrat", sans-serif;
-    margin: 0; /* Add this to remove default margins */
+    padding-top: 20vh;
+  
 }
 
-
-
+header {
+    position: fixed; /* Ajouté */
+    top: 0; /* Ajouté */
+    width: 100%; /* Ajouté pour s'assurer que le header prend toute la largeur */
+    z-index: 1000; /* Ajouté pour s'assurer que le header reste au-dessus du contenu */
+    margin-bottom: 2rem; /* Ajouté pour créer un espace sous le header */
+}
 
 
 .header {
