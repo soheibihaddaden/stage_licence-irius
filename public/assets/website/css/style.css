@@ -2776,6 +2776,18 @@ font header .navbar-default .navbar-nav li a:hover {
   color: black; /* Couleur du texte au survol */
 }
 
+.post-media img {
+  width: 70%; /* Ajustez selon vos besoins */
+  height: 70%; /* Ajustez selon vos besoins */
+  border: 2px solid  #141d28 !important;
+  border-radius: 5px;
+  padding: 5px;
+}
 
+
+
+.post-media img:hover {
+  border-color: #0073ff !important; /* Change la bordure en bleu au survol */
+}
 
 
